@@ -1,0 +1,80 @@
+import 'package:finastra_design_system/gen/fonts.gen.dart';
+import 'package:finastra_design_system/src/color.dart';
+import 'package:flutter/widgets.dart';
+
+class FDSText extends StatelessWidget {
+  const FDSText(
+    this.text, {
+    super.key,
+    this.style,
+    this.textAlign = TextAlign.start,
+  });
+
+  final String text;
+  final FDSTextStyle? style;
+  final TextAlign textAlign;
+
+  @override
+  Widget build(BuildContext context) {
+    return RichText(
+      textAlign: textAlign,
+      text: TextSpan(
+        text: text,
+        style: const FDSTextStyle(
+          fontFamily: FDSFont.roboto,
+        ).merge(style).toTextStyle(),
+      ),
+    );
+  }
+}
+
+class FDSTextStyle {
+  const FDSTextStyle({
+    this.fontFamily = FDSFont.roboto,
+    this.color = FDSColor.charcoal100,
+    this.fontSize,
+    this.fontWeight,
+  });
+
+  final String fontFamily;
+  final FDSColor color;
+  final double? fontSize;
+  final FontWeight? fontWeight;
+
+  FDSTextStyle copyWith({
+    String? fontFamily,
+    FDSColor? color,
+    double? fontSize,
+    FontWeight? fontWeight,
+  }) {
+    return FDSTextStyle(
+      fontFamily: fontFamily ?? this.fontFamily,
+      color: color ?? this.color,
+      fontSize: fontSize ?? this.fontSize,
+      fontWeight: fontWeight ?? this.fontWeight,
+    );
+  }
+
+  FDSTextStyle merge(FDSTextStyle? other) {
+    if (other == null) {
+      return this;
+    }
+
+    return copyWith(
+      fontFamily: other.fontFamily,
+      color: other.color,
+      fontSize: other.fontSize,
+      fontWeight: other.fontWeight,
+    );
+  }
+
+  @protected
+  TextStyle toTextStyle() {
+    return TextStyle(
+      fontFamily: fontFamily,
+      color: color,
+      fontSize: fontSize,
+      fontWeight: fontWeight,
+    );
+  }
+}
