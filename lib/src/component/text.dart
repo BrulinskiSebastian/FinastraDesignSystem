@@ -34,24 +34,28 @@ class FDSTextStyle {
     this.color = FDSColor.charcoal100,
     this.fontSize,
     this.fontWeight,
+    this.lineHeight,
   });
 
   final String fontFamily;
   final FDSColor color;
   final double? fontSize;
   final FontWeight? fontWeight;
+  final double? lineHeight;
 
   FDSTextStyle copyWith({
     String? fontFamily,
     FDSColor? color,
     double? fontSize,
     FontWeight? fontWeight,
+    double? lineHeight,
   }) {
     return FDSTextStyle(
       fontFamily: fontFamily ?? this.fontFamily,
       color: color ?? this.color,
       fontSize: fontSize ?? this.fontSize,
       fontWeight: fontWeight ?? this.fontWeight,
+      lineHeight: lineHeight ?? this.lineHeight,
     );
   }
 
@@ -65,6 +69,7 @@ class FDSTextStyle {
       color: other.color,
       fontSize: other.fontSize,
       fontWeight: other.fontWeight,
+      lineHeight: other.lineHeight,
     );
   }
 
@@ -72,9 +77,10 @@ class FDSTextStyle {
   TextStyle toTextStyle() {
     return TextStyle(
       fontFamily: fontFamily,
-      color: color,
+      color: color.toColor(),
       fontSize: fontSize,
       fontWeight: fontWeight,
+      height: lineHeight,
     );
   }
 }

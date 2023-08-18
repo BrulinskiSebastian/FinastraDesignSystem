@@ -26,13 +26,14 @@ class FDSTheme extends InheritedWidget {
 
 @immutable
 class FDSThemeData {
-  const FDSThemeData({
+  FDSThemeData({
     this.colorScheme = const FDSColorScheme.light(),
     this.spacing = const FDSSpacing.standard(),
-  });
+  }) : elevation = FDSElevation(colorScheme.onSurface);
 
   final FDSColorScheme colorScheme;
   final FDSSpacing spacing;
+  final FDSElevation elevation;
 
   @override
   int get hashCode => Object.hash(colorScheme, spacing);

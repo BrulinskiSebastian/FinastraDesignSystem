@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FDSTheme(
-      themeData: const FDSThemeData(),
+      themeData: FDSThemeData(),
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
@@ -60,6 +60,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  int buttonToggleValue = 1;
 
   void _incrementCounter() {
     setState(() {
@@ -108,6 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // action in the IDE, or press "p" in the console), to see the
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             const Text(
               'You have pushed the button this many times:',
@@ -122,6 +124,44 @@ class _MyHomePageState extends State<MyHomePage> {
               color: FDSButtonColor.primary,
               size: FDSButtonSize.standard,
               onPressed: _incrementCounter,
+            ),
+            const Gap(24.0),
+            const FDSBadge(style: FDSBadgeStyle.secondary, text: '123'),
+            const Gap(24.0),
+            FDSButtonToggle(
+              value: buttonToggleValue,
+              size: FDSButtonToggleSize.standard,
+              itemOrientation: FDSButtonToggleItemOrientation.horizontal,
+              items: [
+                FDSButtonToggleItem(
+                  value: 1,
+                  icon: FDSAsset.icon.add,
+                  // text: '1D',
+                ),
+                FDSButtonToggleItem(
+                  value: 2,
+                  icon: FDSAsset.icon.add,
+                  badge: const FDSBadge(
+                    style: FDSBadgeStyle.outlined,
+                    text: '8',
+                  ),
+                  text: '5D',
+                ),
+                FDSButtonToggleItem(
+                  icon: FDSAsset.icon.add,
+                  value: 3,
+                  text: '1M',
+                ),
+                FDSButtonToggleItem(value: 4, text: '1Y'),
+                FDSButtonToggleItem(value: 5, text: '5Y'),
+              ],
+              onChanged: (value) {
+                if (value != null) {
+                  setState(() {
+                    buttonToggleValue = value;
+                  });
+                }
+              },
             ),
           ],
         ),

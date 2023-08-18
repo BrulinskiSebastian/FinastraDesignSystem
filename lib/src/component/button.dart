@@ -3,7 +3,6 @@ import 'package:finastra_design_system/src/component/text.dart';
 import 'package:finastra_design_system/src/theme.dart';
 import 'package:flutter/widgets.dart';
 
-import '../atom/gradient_border.dart';
 import '../color.dart';
 import '../typography.dart';
 
@@ -144,11 +143,11 @@ class FDSButton extends StatelessWidget {
         constraints: constraints,
         padding: padding,
         decoration: BoxDecoration(
-          color: fillColor,
+          color: fillColor?.toColor(),
           border: type == FDSButtonType.outlined
-              ? GradientBorder.all(
+              ? Border.all(
                   width: 1.0,
-                  color: borderColor!,
+                  color: borderColor!.toColor(),
                 )
               : null,
           borderRadius: borderRadius,
@@ -160,7 +159,7 @@ class FDSButton extends StatelessWidget {
             if (iconStart != null)
               iconStart.svg(
                 colorFilter: ColorFilter.mode(
-                  iconColor,
+                  iconColor.toColor(),
                   BlendMode.srcIn,
                 ),
               ),
@@ -178,7 +177,7 @@ class FDSButton extends StatelessWidget {
             if (iconEnd != null)
               iconEnd.svg(
                 colorFilter: ColorFilter.mode(
-                  iconColor,
+                  iconColor.toColor(),
                   BlendMode.srcIn,
                 ),
               )

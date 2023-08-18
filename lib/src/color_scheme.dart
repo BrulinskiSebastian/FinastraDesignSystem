@@ -18,6 +18,7 @@ class FDSColorScheme {
     required this.onBackground,
     required this.onSurface,
     required this.onSurfaceDisabled,
+    required this.onSuccess,
     required this.onError,
     required this.outlineBorderOnSurface,
   });
@@ -35,6 +36,7 @@ class FDSColorScheme {
         onBackground = const FDSColor(0xFF000000),
         onSurface = const FDSColor(0xFF000000),
         onSurfaceDisabled = const FDSColor(0x4A000000),
+        onSuccess = const FDSColor(0xFFFFFFFF),
         onError = const FDSColor(0xFFFFFFFF),
         outlineBorderOnSurface = const FDSColor(0x1F000000);
 
@@ -51,6 +53,7 @@ class FDSColorScheme {
         onBackground = const FDSColor(0xFFFFFFFF),
         onSurface = const FDSColor(0xFFFFFFFF),
         onSurfaceDisabled = const FDSColor(0x4A000000),
+        onSuccess = const FDSColor(0xFF000000),
         onError = const FDSColor(0xFF000000),
         outlineBorderOnSurface = const FDSColor(0x1F000000);
 
@@ -66,6 +69,7 @@ class FDSColorScheme {
   final FDSColor onBackground;
   final FDSColor onSurface;
   final FDSColor onSurfaceDisabled;
+  final FDSColor onSuccess;
   final FDSColor onError;
   final FDSColor outlineBorderOnSurface;
 
@@ -83,6 +87,7 @@ class FDSColorScheme {
         onBackground,
         onSurface,
         onSurfaceDisabled,
+        onSuccess,
         onError,
         outlineBorderOnSurface,
       );
