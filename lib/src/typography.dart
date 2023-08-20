@@ -10,7 +10,7 @@ class FDSTypography extends FDSTextStyle {
           fontFamily: FDSFont.spartan,
           fontSize: 51,
           lineHeight: 1.4,
-          fontWeight: FontWeight.w800,
+          fontWeight: weightExtraBold,
         );
 
   const FDSTypography.headline2()
@@ -18,7 +18,7 @@ class FDSTypography extends FDSTextStyle {
           fontFamily: FDSFont.spartan,
           fontSize: 41,
           lineHeight: 1.4,
-          fontWeight: FontWeight.w800,
+          fontWeight: weightExtraBold,
         );
 
   const FDSTypography.headline3()
@@ -26,7 +26,7 @@ class FDSTypography extends FDSTextStyle {
           fontFamily: FDSFont.spartan,
           fontSize: 28,
           lineHeight: 1.4,
-          fontWeight: FontWeight.w800,
+          fontWeight: weightExtraBold,
         );
 
   const FDSTypography.headline4()
@@ -34,7 +34,7 @@ class FDSTypography extends FDSTextStyle {
           fontFamily: FDSFont.spartan,
           fontSize: 21,
           lineHeight: 1.4,
-          fontWeight: FontWeight.w800,
+          fontWeight: weightExtraBold,
         );
 
   const FDSTypography.headline5()
@@ -42,7 +42,7 @@ class FDSTypography extends FDSTextStyle {
           fontFamily: FDSFont.spartan,
           fontSize: 16,
           lineHeight: 1.37,
-          fontWeight: FontWeight.w800,
+          fontWeight: weightExtraBold,
         );
 
   const FDSTypography.headline6()
@@ -50,7 +50,7 @@ class FDSTypography extends FDSTextStyle {
           fontFamily: FDSFont.spartan,
           fontSize: 13,
           lineHeight: 1.38,
-          fontWeight: FontWeight.w800,
+          fontWeight: weightExtraBold,
         );
 
   const FDSTypography.subtitle1()
@@ -58,7 +58,7 @@ class FDSTypography extends FDSTextStyle {
           fontFamily: FDSFont.roboto,
           fontSize: 16,
           lineHeight: 1.5,
-          fontWeight: FontWeight.w600,
+          fontWeight: weightMedium,
         );
 
   const FDSTypography.subtitle2()
@@ -66,7 +66,7 @@ class FDSTypography extends FDSTextStyle {
           fontFamily: FDSFont.roboto,
           fontSize: 14,
           lineHeight: 1.5,
-          fontWeight: FontWeight.w600,
+          fontWeight: weightMedium,
         );
 
   const FDSTypography.subtitle3()
@@ -74,7 +74,7 @@ class FDSTypography extends FDSTextStyle {
           fontFamily: FDSFont.roboto,
           fontSize: 12,
           lineHeight: 1.5,
-          fontWeight: FontWeight.w600,
+          fontWeight: weightMedium,
         );
 
   const FDSTypography.subtitle4()
@@ -82,7 +82,7 @@ class FDSTypography extends FDSTextStyle {
           fontFamily: FDSFont.roboto,
           fontSize: 10,
           lineHeight: 1.5,
-          fontWeight: FontWeight.w600,
+          fontWeight: weightMedium,
         );
 
   const FDSTypography.body1()
@@ -90,7 +90,7 @@ class FDSTypography extends FDSTextStyle {
           fontFamily: FDSFont.roboto,
           fontSize: 16,
           lineHeight: 1.5,
-          fontWeight: FontWeight.w300,
+          fontWeight: weightLight,
         );
 
   const FDSTypography.body2()
@@ -98,7 +98,7 @@ class FDSTypography extends FDSTextStyle {
           fontFamily: FDSFont.roboto,
           fontSize: 14,
           lineHeight: 1.5,
-          fontWeight: FontWeight.w300,
+          fontWeight: weightLight,
         );
 
   const FDSTypography.body3()
@@ -106,7 +106,7 @@ class FDSTypography extends FDSTextStyle {
           fontFamily: FDSFont.roboto,
           fontSize: 12,
           lineHeight: 1.5,
-          fontWeight: FontWeight.w300,
+          fontWeight: weightLight,
         );
 
   const FDSTypography.body4()
@@ -114,7 +114,7 @@ class FDSTypography extends FDSTextStyle {
           fontFamily: FDSFont.roboto,
           fontSize: 10,
           lineHeight: 1.5,
-          fontWeight: FontWeight.w300,
+          fontWeight: weightLight,
         );
 
   const FDSTypography.button1()
@@ -122,7 +122,7 @@ class FDSTypography extends FDSTextStyle {
           fontFamily: FDSFont.roboto,
           fontSize: 16,
           lineHeight: 1.5,
-          fontWeight: FontWeight.w700,
+          fontWeight: weightBold,
         );
 
   const FDSTypography.button2()
@@ -130,7 +130,7 @@ class FDSTypography extends FDSTextStyle {
           fontFamily: FDSFont.roboto,
           fontSize: 14,
           lineHeight: 1.42,
-          fontWeight: FontWeight.w700,
+          fontWeight: weightBold,
         );
 
   const FDSTypography.button3()
@@ -138,7 +138,7 @@ class FDSTypography extends FDSTextStyle {
           fontFamily: FDSFont.roboto,
           fontSize: 12,
           lineHeight: 1.5,
-          fontWeight: FontWeight.w700,
+          fontWeight: weightBold,
         );
 
   const FDSTypography.caption()
@@ -146,7 +146,7 @@ class FDSTypography extends FDSTextStyle {
           fontFamily: FDSFont.roboto,
           fontSize: 12,
           lineHeight: 1.5,
-          fontWeight: FontWeight.w400,
+          fontWeight: weightRegular,
         );
 
   const FDSTypography.overline()
@@ -154,6 +154,12 @@ class FDSTypography extends FDSTextStyle {
           fontFamily: FDSFont.roboto,
           fontSize: 10,
           lineHeight: 1.5,
-          fontWeight: FontWeight.w400,
+          fontWeight: weightRegular,
         );
+
+  static const FontWeight weightLight = FontWeight.w300;
+  static const FontWeight weightRegular = FontWeight.w400;
+  static const FontWeight weightMedium = FontWeight.w500;
+  static const FontWeight weightBold = FontWeight.w700;
+  static const FontWeight weightExtraBold = FontWeight.w800;
 }

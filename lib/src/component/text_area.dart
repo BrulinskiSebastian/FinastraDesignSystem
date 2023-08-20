@@ -1,9 +1,8 @@
+import 'package:finastra_design_system/src/atom/base_text_field.dart';
 import 'package:flutter/widgets.dart';
 
-import '../atom/base_text_field.dart';
-
-class FDSTextField extends FDSBaseTextField {
-  const FDSTextField({
+class FDSTextArea extends FDSBaseTextField {
+  const FDSTextArea({
     super.key,
     super.controller,
     super.focusNode,
@@ -19,10 +18,10 @@ class FDSTextField extends FDSBaseTextField {
     super.iconLeft,
     super.iconRight,
   }) : super(
-          height: null,
-          maxLines: 1,
-          minLines: 1,
-          alignment: Alignment.centerLeft,
-          insideLabelBehavior: FDSInsideLabelBehavior.floating,
+          height: 208,
+          alignment: Alignment.topCenter,
+          minLines: 6,
+          maxLines: 6,
+          insideLabelBehavior: FDSInsideLabelBehavior.alwaysVisible,
         );
 }

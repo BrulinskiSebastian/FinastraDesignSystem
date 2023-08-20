@@ -49,6 +49,8 @@ class FDSTextStyle {
   final FontWeight? fontWeight;
   final double? lineHeight;
 
+  double get height => (fontSize ?? .0) * (lineHeight ?? .0);
+
   FDSTextStyle copyWith({
     String? fontFamily,
     FDSColor? color,

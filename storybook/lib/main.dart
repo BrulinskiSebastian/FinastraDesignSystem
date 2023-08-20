@@ -62,6 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   int buttonToggleValue = 1;
   late final textEditingController = TextEditingController();
+  late final textAreaEditingController = TextEditingController();
 
   void _incrementCounter() {
     setState(() {
@@ -95,91 +96,105 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            FDSButton(
-              text: 'Button Lorem Ipsum',
-              type: FDSButtonType.outlined,
-              color: FDSButtonColor.primary,
-              size: FDSButtonSize.standard,
-              onPressed: () {
-                FocusScope.of(context).focusedChild?.unfocus();
-                _incrementCounter();
-              },
-            ),
-            const Gap(24.0),
-            const FDSBadge(style: FDSBadgeStyle.secondary, text: '123'),
-            const Gap(24.0),
-            FDSButtonToggle(
-              value: buttonToggleValue,
-              size: FDSButtonToggleSize.standard,
-              itemOrientation: FDSButtonToggleItemOrientation.horizontal,
-              items: [
-                FDSButtonToggleItem(
-                  value: 1,
-                  icon: FDSAsset.icon.add,
-                  // text: '1D',
-                ),
-                FDSButtonToggleItem(
-                  value: 2,
-                  icon: FDSAsset.icon.add,
-                  badge: const FDSBadge(
-                    style: FDSBadgeStyle.outlined,
-                    text: '8',
-                  ),
-                  text: '5D',
-                ),
-                FDSButtonToggleItem(
-                  icon: FDSAsset.icon.add,
-                  value: 3,
-                  text: '1M',
-                ),
-                FDSButtonToggleItem(value: 4, text: '1Y'),
-                FDSButtonToggleItem(value: 5, text: '5Y'),
-              ],
-              onChanged: (value) {
-                if (value != null) {
-                  setState(() {
-                    buttonToggleValue = value;
-                  });
-                }
-              },
-            ),
-            const Gap(24.0),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: FDSTextField(
-                controller: textEditingController,
-                size: FDSTextFieldSize.standard,
-                hint: 'This is hint',
-                label: 'Label',
-                helperText: 'Helper text',
-                iconLeft: FDSAsset.icon.add,
+        child: SingleChildScrollView(
+          child: Column(
+            // Column is also a layout widget. It takes a list of children and
+            // arranges them vertically. By default, it sizes itself to fit its
+            // children horizontally, and tries to be as tall as its parent.
+            //
+            // Column has various properties to control how it sizes itself and
+            // how it positions its children. Here we use mainAxisAlignment to
+            // center the children vertically; the main axis here is the vertical
+            // axis because Columns are vertical (the cross axis would be
+            // horizontal).
+            //
+            // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
+            // action in the IDE, or press "p" in the console), to see the
+            // wireframe for each widget.
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              const Text(
+                'You have pushed the button this many times:',
               ),
-            ),
-          ],
+              Text(
+                '$_counter',
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+              FDSButton(
+                text: 'Button Lorem Ipsum',
+                type: FDSButtonType.outlined,
+                color: FDSButtonColor.primary,
+                size: FDSButtonSize.standard,
+                onPressed: () {
+                  FocusScope.of(context).focusedChild?.unfocus();
+                  _incrementCounter();
+                },
+              ),
+              const Gap(24.0),
+              const FDSBadge(style: FDSBadgeStyle.secondary, text: '123'),
+              const Gap(24.0),
+              FDSButtonToggle(
+                value: buttonToggleValue,
+                size: FDSButtonToggleSize.standard,
+                itemOrientation: FDSButtonToggleItemOrientation.horizontal,
+                items: [
+                  FDSButtonToggleItem(
+                    value: 1,
+                    icon: FDSAsset.icon.add,
+                    // text: '1D',
+                  ),
+                  FDSButtonToggleItem(
+                    value: 2,
+                    icon: FDSAsset.icon.add,
+                    badge: const FDSBadge(
+                      style: FDSBadgeStyle.outlined,
+                      text: '8',
+                    ),
+                    text: '5D',
+                  ),
+                  FDSButtonToggleItem(
+                    icon: FDSAsset.icon.add,
+                    value: 3,
+                    text: '1M',
+                  ),
+                  FDSButtonToggleItem(value: 4, text: '1Y'),
+                  FDSButtonToggleItem(value: 5, text: '5Y'),
+                ],
+                onChanged: (value) {
+                  if (value != null) {
+                    setState(() {
+                      buttonToggleValue = value;
+                    });
+                  }
+                },
+              ),
+              const Gap(24.0),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: FDSTextField(
+                  controller: textEditingController,
+                  hint: 'This is hint',
+                  insideLabel: 'Label',
+                  hasError: true,
+                  helperText: 'Helper text',
+                  iconLeft: FDSAsset.icon.add,
+                ),
+              ),
+              const Gap(24.0),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: FDSTextArea(
+                  controller: textAreaEditingController,
+                  size: FDSTextFieldSize.large,
+                  hint: 'This is hint',
+                  insideLabel: 'Label',
+                  helperText: 'Helper text',
+                  iconLeft: FDSAsset.icon.add,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
