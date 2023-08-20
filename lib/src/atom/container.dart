@@ -11,6 +11,9 @@ class FDSContainer extends StatelessWidget {
     this.margin,
     this.width,
     this.height,
+    this.alignment,
+    this.constraints,
+    this.borderType = FDSBorderType.outside,
     this.child,
     super.key,
   });
@@ -23,14 +26,23 @@ class FDSContainer extends StatelessWidget {
   final EdgeInsets? margin;
   final double? width;
   final double? height;
+  final AlignmentGeometry? alignment;
+  final BoxConstraints? constraints;
+  final FDSBorderType borderType;
   final Widget? child;
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      foregroundDecoration: borderType == FDSBorderType.inside
+          ? BoxDecoration(
+              border: border,
+              borderRadius: borderRadius,
+            )
+          : null,
       decoration: BoxDecoration(
         color: color?.toColor(),
-        border: border,
+        border: borderType == FDSBorderType.outside ? border : null,
         borderRadius: borderRadius,
         boxShadow: boxShadow,
       ),
@@ -38,7 +50,14 @@ class FDSContainer extends StatelessWidget {
       margin: margin,
       width: width,
       height: height,
+      alignment: alignment,
+      constraints: constraints,
       child: child,
     );
   }
+}
+
+enum FDSBorderType {
+  inside,
+  outside,
 }

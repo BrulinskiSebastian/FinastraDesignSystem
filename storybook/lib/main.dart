@@ -61,6 +61,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   int buttonToggleValue = 1;
+  late final textEditingController = TextEditingController();
 
   void _incrementCounter() {
     setState(() {
@@ -123,7 +124,10 @@ class _MyHomePageState extends State<MyHomePage> {
               type: FDSButtonType.outlined,
               color: FDSButtonColor.primary,
               size: FDSButtonSize.standard,
-              onPressed: _incrementCounter,
+              onPressed: () {
+                FocusScope.of(context).focusedChild?.unfocus();
+                _incrementCounter();
+              },
             ),
             const Gap(24.0),
             const FDSBadge(style: FDSBadgeStyle.secondary, text: '123'),
@@ -162,6 +166,18 @@ class _MyHomePageState extends State<MyHomePage> {
                   });
                 }
               },
+            ),
+            const Gap(24.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: FDSTextField(
+                controller: textEditingController,
+                size: FDSTextFieldSize.standard,
+                hint: 'This is hint',
+                label: 'Label',
+                helperText: 'Helper text',
+                iconLeft: FDSAsset.icon.add,
+              ),
             ),
           ],
         ),

@@ -7,16 +7,22 @@ class FDSText extends StatelessWidget {
     this.text, {
     super.key,
     this.style,
+    this.maxLines,
+    this.overflow = TextOverflow.clip,
     this.textAlign = TextAlign.start,
   });
 
   final String text;
   final FDSTextStyle? style;
+  final int? maxLines;
+  final TextOverflow overflow;
   final TextAlign textAlign;
 
   @override
   Widget build(BuildContext context) {
     return RichText(
+      maxLines: maxLines,
+      overflow: overflow,
       textAlign: textAlign,
       text: TextSpan(
         text: text,
@@ -73,7 +79,6 @@ class FDSTextStyle {
     );
   }
 
-  @protected
   TextStyle toTextStyle() {
     return TextStyle(
       fontFamily: fontFamily,
