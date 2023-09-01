@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 // TODO(sb): Counter
 // TODO(sb): Right icon
 // TODO(sb): Selection
+// TODO(sb): Label color
 class FDSBaseTextField extends StatefulWidget {
   const FDSBaseTextField({
     this.controller,
@@ -168,7 +169,7 @@ class _FDSBaseTextFieldState extends State<FDSBaseTextField> {
           lineHeight: 1.5,
           fontWeight: FDSTypography.weightMedium,
         );
-        labelStyle = const FDSTypography.body2();
+        labelStyle = const FDSTypography.body2().copyWith();
         height = widget.height ?? 74.0;
         break;
       case FDSTextFieldSize.standard:

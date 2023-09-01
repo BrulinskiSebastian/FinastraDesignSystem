@@ -30,6 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  storybook_flutter: ^0.14.0
   finastra_design_system:
     path: ../
 

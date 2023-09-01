@@ -125,7 +125,7 @@ class _FDSButtonToggleItemWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             if (iconWidget != null) iconWidget,
-            if (badge != null || textWidget != null)
+            if (iconWidget != null && (badge != null || textWidget != null))
               Gap(context.theme.spacing.spacing1),
             if (badge == null && textWidget != null) textWidget,
             if (badge != null && textWidget != null)
